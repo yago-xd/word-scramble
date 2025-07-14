@@ -58,15 +58,20 @@ public class Main {
         read_wordlist();
         get_word();
         scramble();
-        System.out.println("Welcome to the Word Scramble Game!");
-        System.out.println("A word will be picked and scrambled.");
-        System.out.println("You have 5 attempts to unscramble the word");
-        System.out.println("Good luck!\n");
+        System.out.println("╔══════════════════════════════════════╗");
+        System.out.println("║     🎉 Welcome to Word Scramble 🎉  ║");
+        System.out.println("╠══════════════════════════════════════╣");
+        System.out.println("║ A word will be randomly scrambled.   ║");
+        System.out.println("║ Your task: Unscramble it in 5 tries. ║");
+        System.out.println("║                                      ║");
+        System.out.println("║ 💡 Tip: Think fast but stay sharp!   ║");
+        System.out.println("╚══════════════════════════════════════╝");
+        System.out.println("🟡 Game Starting...\n");
     }
     public static void unscramble() throws InterruptedException {
-        System.out.print("Unscramble the word: ");
+        System.out.print("🧠 Unscramble this word: ");
         Thread.sleep(1000);
-        System.out.print("\rUnscramble the word: "+scrambled);
+        System.out.print("\r🧠 Unscramble this word: " + scrambled + "\n");
         System.out.println();
         start_dur =System.currentTimeMillis();
         while(attempts<max_attempts){

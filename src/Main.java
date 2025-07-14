@@ -89,7 +89,7 @@ public class Main {
         long diff=end_dur-start_dur;
         int time=(int)(diff/1000);
         int score;
-        score=Math.max(0,(100-time)*2);
+        score=Math.max(0,(101-time-attempts)*2);
         if(attempts_left==0){
             System.out.println("\nBetter luck next time! The word was: "+word);
             System.out.println("Thanks for playing!");

@@ -1,10 +1,9 @@
+import java.io.InputStream;
 import java.util.Collections;
 import java.util.Scanner;
 import java.util.Random;
 import java.util.ArrayList;
 import java.util.List;
-import java.io.File;
-import java.io.FileNotFoundException;
 public class Main {
     static ArrayList<String> words = new ArrayList<>();
     static final int max_attempts=5;
@@ -15,15 +14,17 @@ public class Main {
     static Scanner sc = new Scanner(System.in);
     static Random rand = new Random();
     static long start_dur,end_dur;
-    public static void read_wordlist() throws FileNotFoundException {
-        File word_file = new File("words.txt");
-        if(!word_file.exists()) {
+    public static void read_wordlist(){
+        InputStream input = Main.class.getResourceAsStream("/words.txt");
+        if(input == null){
             System.out.println("Word file not found!");
             System.exit(0);
         }
-        Scanner reader = new Scanner(word_file);
+        Scanner reader = new Scanner(input);
         while(reader.hasNextLine()){
             String a = reader.nextLine().trim();
+            if(a.startsWith("#"))
+                a = reader.nextLine().trim();
             if(a.isEmpty()){
                 System.out.println("There can't be a blank line in the word list!!");
                 System.exit(0);
@@ -49,7 +50,7 @@ public class Main {
             temp.append(c);
         scrambled=temp.toString();
     }
-    public static void welcome() throws FileNotFoundException {
+    public static void welcome(){
         read_wordlist();
         get_word();
         scramble();
@@ -101,7 +102,7 @@ public class Main {
         System.out.println("Score: "+score);
         System.out.println("Thanks for playing!");
     }
-    public static void main(String[] args) throws InterruptedException, FileNotFoundException {
+    public static void main(String[] args) throws InterruptedException{
         welcome();
         unscramble();
         score();

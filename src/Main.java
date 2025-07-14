@@ -23,11 +23,15 @@ public class Main {
         Scanner reader = new Scanner(input);
         while(reader.hasNextLine()){
             String a = reader.nextLine().trim();
-            if(a.startsWith("#"))
+            while(a.startsWith("#")){
                 a = reader.nextLine().trim();
-            if(a.isEmpty()){
-                System.out.println("There can't be a blank line in the word list!!");
-                System.exit(0);
+                if(!a.startsWith("#"))
+                    break;
+            }
+            while(a.isEmpty()){
+                a = reader.nextLine().trim();
+                if(!a.isEmpty())
+                    break;
             }
             words.add(a);
         }

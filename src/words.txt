@@ -1,3 +1,6 @@
+# Sample words.txt file. Add or edit words into this list to use them in the game.
+# There should not be any blank lines that are not commented.
+# Comment using a '#' to skip the current line.
 planet
 window
 cradle

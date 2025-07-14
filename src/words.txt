@@ -1,5 +1,5 @@
 # Sample words.txt file. Add or edit words into this list to use them in the game.
-# There should not be any blank lines that are not commented.
+# There should not be any lines that are not commented if you do not wish to see those lines scrambled in the game.
 # Comment using a '#' to skip the current line.
 planet
 window

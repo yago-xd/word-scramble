@@ -71,17 +71,18 @@ public class Main {
     public static void unscramble() throws InterruptedException {
         System.out.print("🧠 Unscramble this word: ");
         Thread.sleep(1000);
-        System.out.print("\r🧠 Unscramble this word: " + scrambled + "\n");
+        System.out.print("\r🧠 Unscramble this word: " + scrambled);
         System.out.println();
         start_dur =System.currentTimeMillis();
         while(attempts<max_attempts){
+            System.out.print("👉 Your guess: ");
             user=sc.nextLine().toLowerCase().trim();
             if(user.isEmpty()){
-                System.out.println("Please enter something!");
+                System.out.println("⚠️ Please enter something!");
                 continue;
             }
             if(user.equals(word)){
-                System.out.println("\nCongrats! You have unscrambled the word correctly!");
+                System.out.println("\n🎉 Congrats! You unscrambled it correctly!");
                 end_dur=System.currentTimeMillis();
                 attempts++;
                 attempts_left--;
@@ -91,7 +92,7 @@ public class Main {
                 attempts++;
                 attempts_left--;
                 if(attempts_left>0)
-                    System.out.println("Keep trying! "+attempts_left+" attempts left");
+                    System.out.println("❌ Incorrect! Keep trying. 🔁 Attempts left: " + attempts_left);
             }
         }
     }
@@ -100,16 +101,22 @@ public class Main {
         int time=(int)(diff/1000);
         int score;
         score=Math.max(0,(101-time-attempts)*2);
+        System.out.println("\n🎮 Game Over!");
+        System.out.println("══════════════════════════════════");
         if(attempts_left==0){
-            System.out.println("\nBetter luck next time! The word was: "+word);
-            System.out.println("Thanks for playing!");
+            System.out.println("💔 You ran out of attempts!");
+            System.out.println("📌 The correct word was: " + word);
             return;
         }
-        System.out.println("-----------Score-----------");
-        System.out.println("Time Taken: "+time+"s");
-        System.out.println("Attempts Taken: "+attempts);
-        System.out.println("Score: "+score);
-        System.out.println("Thanks for playing!");
+        else
+            System.out.println("🏁 You solved it!");
+        System.out.println("\n📊 Your Performance:");
+        System.out.println("⏱️  Time Taken     : " + time + " seconds");
+        System.out.println("🎯 Attempts Used   : " + attempts);
+        System.out.println("⭐ Final Score     : " + score);
+
+        System.out.println("══════════════════════════════════");
+        System.out.println("🙏 Thanks for playing! See you soon!");
     }
     public static void main(String[] args) throws InterruptedException{
         welcome();

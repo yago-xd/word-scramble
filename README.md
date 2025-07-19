@@ -44,6 +44,8 @@ java -jar word-scramble.jar
 4. The game displays your time taken, attempts used, and a final score.
 5. If you fail to guess the word in five tries, the correct word is revealed.
 
+Try it on: [Replit](https://replit.com/@yago-xd/typing-speed)
+
 ---
 ## 📖 Concepts Covered
 📁 File I/O with InputStream (for embedded resources)  

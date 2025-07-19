@@ -96,9 +96,21 @@ public class Main {
             }
         }
     }
+    public static String time_convert(){
+        long ts=(end_dur-start_dur)/1000;
+        long hours=(ts/3600);
+        long minutes=(ts%3600)/60;
+        long seconds=ts%60;
+        StringBuilder time_display = new StringBuilder();
+        if(ts>=3600)
+            time_display.append(hours).append(" hours, ");
+        if(ts>=60)
+            time_display.append(minutes).append(" minutes, ");
+        time_display.append(seconds).append(" seconds");
+        return time_display.toString();
+    }
     public static void score(){
-        long diff=end_dur-start_dur;
-        int time=(int)(diff/1000);
+        int time=(int)(end_dur-start_dur/1000);
         int score;
         score=Math.max(0,(101-time-attempts)*2);
         System.out.println("\n🎮 Game Over!");
@@ -111,7 +123,7 @@ public class Main {
         else
             System.out.println("🏁 You solved it!");
         System.out.println("\n📊 Your Performance:");
-        System.out.println("⏱️  Time Taken     : " + time + " seconds");
+        System.out.println("⏱️  Time Taken     : " + time_convert());
         System.out.println("🎯 Attempts Used   : " + attempts);
         System.out.println("⭐ Final Score     : " + score);
 
